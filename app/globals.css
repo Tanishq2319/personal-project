@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0b0b0d;
+  --color-royal: #6d3ff0;
+  --color-lavender: #cbb8f9;
+  /* chapter accents — each chapter owns a hue so the film changes temperature */
+  --color-ember: #e0a56b; /* autumn, mudcups, warmth */
+  --color-rose: #d98fa8; /* orchids, softness */
+  --color-steel: #7fb0c8; /* rain, distance, cold */
+  --color-navy: #16203a;
+  --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+html,
+body {
+  background: var(--color-ink);
+  color: white;
+  font-family: var(--font-body);
+}
+
+/* aurora glow + slow drift, pure CSS so no JS cost */
+.aurora {
+  background: radial-gradient(
+      50% 40% at 20% 20%,
+      color-mix(in oklab, var(--color-royal) 35%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      45% 35% at 80% 70%,
+      color-mix(in oklab, var(--color-lavender) 18%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      40% 40% at 50% 100%,
+      color-mix(in oklab, var(--color-navy) 60%, transparent),
+      transparent 70%
+    );
+  filter: blur(60px);
+  animation: drift 38s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(-3%, -2%, 0) scale(1.05);
+  }
+  to {
+    transform: translate3d(4%, 3%, 0) scale(1.15);
+  }
+}
+
+/* cinematic vignette + film grain over the whole film */
+.vignette {
+  background: radial-gradient(120% 90% at 50% 50%, transparent 45%, rgba(0, 0, 0, 0.75) 100%);
+}
+
+.grain {
+  background-image: repeating-radial-gradient(
+    circle at 0 0,
+    #fff 0,
+    #fff 0.4px,
+    transparent 1px,
+    transparent 2px
+  );
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  /* ponytail: static grain. Animating it repainted the full viewport ~3x/sec. */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora {
+    animation: none;
+  }
+}

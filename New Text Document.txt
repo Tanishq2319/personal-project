@@ -1,0 +1,672 @@
+# Shreya – Interactive Memory Website
+**Project Codename:** OYEE
+**Version:** 1.0
+**Goal:** Create a cinematic, premium, emotional interactive website that feels like reliving memories rather than browsing a webpage.
+
+---
+
+# 1. Vision
+
+This is **not** a love confession website.
+
+This is **not** a portfolio.
+
+This is **not** a slideshow.
+
+It is an **interactive memory film** that celebrates our journey, the moments we shared, and how much those moments still matter after Shreya moved to the USA.
+
+The website should make her smile, laugh, remember, become emotional, and hopefully cry—not because she feels guilty, but because she realizes how deeply someone cherished every little moment.
+
+At the end, she should think:
+
+> "He remembered everything."
+
+---
+
+# 2. Core Emotion
+
+Primary Emotion
+- Nostalgia
+
+Secondary Emotions
+- Warmth
+- Comfort
+- Happiness
+- Missing someone
+- Hope
+- Bittersweet love
+
+Never make the experience feel like emotional pressure.
+
+The website should say:
+
+> "I wanted you to have this."
+
+Not:
+
+> "Please come back."
+
+---
+
+# 3. Design Philosophy
+
+Keywords
+
+- Dreamy
+- Cinematic
+- Elegant
+- Premium
+- Minimal
+- Emotional
+- Modern
+- Interactive
+
+Reference Feel
+
+- Apple product launch smoothness
+- Premium storytelling
+- Streaming-platform cinematic atmosphere
+- High-end motion design
+- Interactive museum of memories
+
+Avoid
+
+- Cheap heart animations
+- Overly pink designs
+- Generic love templates
+- Cringey romantic quotes
+- Loud colors
+- Too much text
+
+---
+
+# 4. Color Palette
+
+Primary
+Deep Black (#0B0B0D)
+
+Accent
+Royal Purple
+
+Secondary
+Soft Lavender
+
+Highlight
+White
+
+Glass
+Frosted translucent cards
+
+Optional
+
+Deep navy
+Soft silver
+
+---
+
+# 5. Typography
+
+Titles
+
+Elegant cinematic serif or premium display font.
+
+Body
+
+Modern sans-serif.
+
+Large spacing.
+
+Minimal paragraphs.
+
+Readable.
+
+Every sentence should feel intentional.
+
+---
+
+# 6. Background
+
+Always alive.
+
+Subtle.
+
+Animated stars.
+
+Tiny floating particles.
+
+Slow gradient movement.
+
+Aurora-like purple glow.
+
+Occasional rain during rain chapter.
+
+No distracting animations.
+
+---
+
+# 7. Music
+
+Soft ambient piano.
+
+Dreamy pads.
+
+Rain ambience during rain memories.
+
+Music OFF button always visible.
+
+No autoplay with high volume.
+
+Volume fades naturally.
+
+---
+
+# 8. Story Flow
+
+---
+
+## Opening
+
+Black screen.
+
+Very subtle ambient particles.
+
+Text fades in.
+
+Hi, Shreya.
+
+Pause.
+
+"I made something for you."
+
+Pause.
+
+"Not because I wanted to say something new..."
+
+"...but because I didn't want our memories to fade."
+
+Begin button appears.
+
+---
+
+## Chapter 1
+
+### The Beginning
+
+22 March 2022
+
+Mutual friend.
+
+College.
+
+The day everything unknowingly started.
+
+Minimal text.
+
+Animated timeline.
+
+---
+
+## Chapter 2
+
+### You
+
+Not compliments.
+
+Observations.
+
+Cards reveal slowly.
+
+Examples
+
+You cared more than people realized.
+
+Purple somehow became your color.
+
+Everyone saw the fun side.
+
+I noticed the caring one.
+
+Your eyes always stood out.
+
+Autumn reminds me of you.
+
+Orchids remind me of you.
+
+Small interactive cards.
+
+---
+
+## Chapter 3
+
+### Our Moments
+
+Main gallery.
+
+Large cinematic images.
+
+Each memory has:
+
+Title
+
+Photo
+
+2–3 sentence story
+
+Examples
+
+Mudcups
+
+VBHC
+
+College Fest
+
+Rain
+
+Gilly's
+
+Late night talks
+
+Selfies
+
+Dark Bar
+
+Video Call
+
+Confession
+
+Each memory transitions beautifully.
+
+---
+
+## Chapter 4
+
+### Rain
+
+Dedicated section.
+
+Rain animation.
+
+Soft music.
+
+Slow camera movement.
+
+Quotes.
+
+Photos.
+
+Maybe tiny rain drops reacting to cursor.
+
+---
+
+## Chapter 5
+
+### Distance
+
+Everything slows.
+
+Colors become cooler.
+
+Animations become slower.
+
+Large date appears.
+
+26 July 2026
+
+Pause.
+
+"You left."
+
+Pause.
+
+"The distance became real."
+
+Interactive world map.
+
+India
+
+USA
+
+Animated glowing path.
+
+---
+
+## Chapter 6
+
+### Things I Miss
+
+Floating memory bubbles.
+
+Click one.
+
+Small sentence appears.
+
+Examples
+
+Listening to you.
+
+Walking in the rain.
+
+Random memes.
+
+Our conversations.
+
+Those small moments.
+
+Your smile.
+
+Your eyes.
+
+The way you cared.
+
+No long paragraphs.
+
+---
+
+## Chapter 7
+
+### A Letter
+
+Not a confession.
+
+Not begging.
+
+A heartfelt thank-you.
+
+Honest.
+
+Simple.
+
+Warm.
+
+Ends with:
+
+Come back soon.
+
+---
+
+## Ending
+
+Everything fades.
+
+Stars.
+
+Soft music.
+
+Small line appears.
+
+"P.S."
+
+"Oyee."
+
+Fade to black.
+
+---
+
+# 9. Netflix Inspiration
+
+Netflix is only an inspiration.
+
+Never copy the branding.
+
+The influence should be emotional, not visual.
+
+Inspired Elements
+
+Movie-like chapters
+
+Cinematic transitions
+
+Minimal UI
+
+Large title cards
+
+Premium storytelling
+
+Subtle "Now Playing" feeling
+
+Maybe:
+
+Runtime
+
+Genre
+
+Play button
+
+Avoid
+
+Netflix logo
+
+Netflix sound
+
+Netflix fonts
+
+Netflix colors
+
+Netflix interface clone
+
+It should feel inspired, not copied.
+
+---
+
+# 10. Animations
+
+Smooth scrolling.
+
+Framer Motion level quality.
+
+GSAP style transitions.
+
+Parallax.
+
+Glass morphing.
+
+Fade.
+
+Scale.
+
+Blur.
+
+Image zoom.
+
+Cursor glow.
+
+Section transitions.
+
+No flashy animations.
+
+Everything should feel slow and intentional.
+
+---
+
+# 11. Photos
+
+Real photos are the soul of the website.
+
+Use
+
+Polaroid style
+
+Film grain
+
+Soft shadow
+
+Rounded corners
+
+Hover animation
+
+Image reveal
+
+Lightbox viewing
+
+Optional handwritten captions.
+
+---
+
+# 12. Micro Interactions
+
+Hover changes light.
+
+Buttons breathe slightly.
+
+Particles react to cursor.
+
+Cards tilt.
+
+Images slowly zoom.
+
+Progress indicator.
+
+Custom cursor.
+
+Background subtly changes while scrolling.
+
+---
+
+# 13. Easter Eggs
+
+Typing "Oyee"
+
+Shows
+
+"I heard you."
+
+Hidden star
+
+Opens unseen memory.
+
+Clicking orchid
+
+Shows special note.
+
+Clicking rain
+
+Starts heavier rain.
+
+Small surprises only.
+
+---
+
+# 14. Emotional Rules
+
+Never guilt-trip.
+
+Never manipulate.
+
+Never say
+
+"You left me."
+
+Instead
+
+"You left for your dreams."
+
+Respect her journey.
+
+Celebrate her growth.
+
+The website is built with admiration.
+
+Not expectation.
+
+---
+
+# 15. Final Message Philosophy
+
+The ending should hint.
+
+Not confess again.
+
+The feeling should be
+
+"I still care."
+
+Not
+
+"Please love me."
+
+---
+
+# 16. Technical Stack
+
+Frontend
+- Next.js
+- TypeScript
+
+Styling
+- Tailwind CSS
+
+Animations
+- Framer Motion
+- GSAP
+
+3D / Background
+- Three.js (optional)
+
+Audio
+- HTML5 Audio API
+
+Image Optimization
+- Next/Image
+
+Deployment
+- Vercel
+
+---
+
+# 17. Content To Collect Before Development
+
+Photos together
+
+Selfies
+
+Rain photos
+
+College memories
+
+Mudcups pictures
+
+VBHC pictures
+
+Airport (if available)
+
+Chat screenshots (optional)
+
+Voice notes (optional)
+
+Favorite songs (optional)
+
+Small personal quotes
+
+Dates of memorable moments
+
+---
+
+# 18. Success Criteria
+
+When Shreya finishes the website, she should:
+
+✔ Smile at forgotten memories.
+
+✔ Laugh at inside jokes.
+
+✔ Feel seen and understood.
+
+✔ Appreciate the effort behind every detail.
+
+✔ Feel emotional without feeling pressured.
+
+✔ Understand that she is deeply valued.
+
+✔ Close the website with one thought:
+
+> "He really remembered all of this."
+
+---
+
+# Guiding Principle
+
+This website is not about asking for love.
+
+It is about preserving memories.
+
+It is a thank-you to someone who unknowingly became one of the most important chapters of my life.
