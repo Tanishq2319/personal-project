@@ -17,18 +17,8 @@ export default function Opening({ onBegin }: { onBegin: () => void }) {
   const { px, py } = useParallax(0.3);
 
   return (
-    <div className="relative grid min-h-screen place-items-center px-6 text-center overflow-hidden bg-[#0B0B0D]">
-      <Tint color="var(--color-royal)" strength={35} />
-
-      <motion.div style={{ x: px, y: py }} className="relative w-full max-w-3xl">
-        {/* Optimized breathing aura light without heavy backdrop blur filters */}
-        <motion.div
-          aria-hidden
-          animate={{ opacity: [0.3, 0.65, 0.3] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 -z-10 size-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-900/40 pointer-events-none"
-        />
-
+    <div className="relative grid min-h-screen place-items-center px-4 text-center overflow-hidden bg-[#0B0B0D]">
+      <motion.div style={{ x: px, y: py }} className="relative w-full max-w-2xl px-2">
         {BEATS.map((b, i) => (
           <motion.p
             key={b}
@@ -42,7 +32,7 @@ export default function Opening({ onBegin }: { onBegin: () => void }) {
               times: [0, 0.2, 0.8, 1],
               ease: "linear",
             }}
-            className="absolute inset-x-0 top-1/2 -translate-y-1/2 font-(family-name:--font-display) text-3xl leading-relaxed font-light text-white sm:text-5xl tracking-wide will-change-transform"
+            className="absolute inset-x-0 top-1/2 -translate-y-1/2 font-(family-name:--font-display) text-2xl leading-relaxed font-light text-white sm:text-4xl md:text-5xl tracking-wide will-change-transform max-w-full px-2"
           >
             {b}
           </motion.p>
@@ -58,11 +48,11 @@ export default function Opening({ onBegin }: { onBegin: () => void }) {
             onClick={onBegin}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
-            className="mx-auto flex items-center gap-3 rounded-full border border-purple-400/60 bg-purple-950/40 px-9 py-4 text-sm tracking-[0.25em] uppercase transition-all hover:border-purple-300 hover:bg-purple-900/60 text-white shadow-xl shadow-purple-950/50"
+            className="mx-auto flex items-center gap-3 rounded-full border border-purple-400/60 bg-purple-950/40 px-8 py-3.5 text-xs sm:text-sm tracking-[0.25em] uppercase transition-all hover:border-purple-300 hover:bg-purple-900/60 text-white shadow-xl shadow-purple-950/50"
           >
-            <span className="text-purple-400 text-lg">▶</span> Press Play
+            <span className="text-purple-400 text-base sm:text-lg">▶</span> Press Play
           </motion.button>
-          <p className="mt-5 text-[10px] tracking-[0.35em] text-white/40 uppercase">
+          <p className="mt-5 text-[9px] sm:text-[10px] tracking-[0.35em] text-white/40 uppercase">
             Best with headphones & sound
           </p>
         </motion.div>

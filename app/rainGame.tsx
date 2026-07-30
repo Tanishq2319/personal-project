@@ -214,7 +214,7 @@ export default function RainGame({ onUnlock }: { onUnlock: () => void }) {
       <div className="relative z-10 mx-6 h-px bg-white/10 overflow-hidden rounded-full">
         <motion.div className="h-full bg-gradient-to-r from-purple-600 to-pink-500" style={{ boxShadow: "0 0 8px 2px rgba(168,85,247,0.5)" }} animate={{ width: `${(display.score / TARGET_SCORE) * 100}%` }} transition={{ type: "spring", stiffness: 120, damping: 20 }} />
       </div>
-      <div ref={containerRef} className={`relative flex-1 w-full overflow-hidden ${isPlaying ? "cursor-none" : "cursor-default"}`}>
+      <div ref={containerRef} className={`relative flex-1 w-full overflow-hidden touch-none ${isPlaying ? "cursor-none" : "cursor-default"}`}>
         <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
         <AnimatePresence>
           {gameKey === 0 && !alreadyUnlocked && (

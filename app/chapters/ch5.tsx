@@ -325,12 +325,12 @@ export default function Ch5() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: TITLE_OUT + 15, duration: 1.5 }}
-            className="absolute right-6 top-6"
+            className="absolute right-4 top-14 sm:right-6 sm:top-6 z-30"
           >
-            <div className="bg-black/60 backdrop-blur-md border border-white/10 rounded-xl px-4 py-3 text-center">
-              <span className="text-[10px] font-mono tracking-widest text-white/30 uppercase block mb-1">Time Gap</span>
-              <span className="text-xl font-mono font-bold text-purple-300">9.5h</span>
-              <span className="text-[10px] font-mono text-white/30 block">IST ahead of EST</span>
+            <div className="bg-black/70 backdrop-blur-md border border-white/10 rounded-xl px-3 py-2 sm:px-4 sm:py-3 text-center">
+              <span className="text-[9px] sm:text-[10px] font-mono tracking-widest text-white/30 uppercase block mb-0.5">Time Gap</span>
+              <span className="text-base sm:text-xl font-mono font-bold text-purple-300">9.5h</span>
+              <span className="text-[9px] sm:text-[10px] font-mono text-white/30 block">IST ahead of EST</span>
             </div>
           </motion.div>
         </div>

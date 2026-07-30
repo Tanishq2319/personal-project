@@ -121,44 +121,44 @@ export default function NetflixHub({
       </div>
 
       {/* Top Navbar */}
-      <header className="relative z-30 flex items-center justify-between px-8 py-6 max-w-7xl mx-auto">
+      <header className="relative z-30 flex items-center justify-between px-4 sm:px-8 py-4 sm:py-6 max-w-7xl mx-auto">
         <div className="flex items-center gap-3">
-          <span className="font-bold text-2xl tracking-widest text-purple-400 font-mono">
-            A MEMORY SERIES<span className="text-white text-xs ml-1 font-light tracking-normal opacity-60">ORIGINAL</span>
+          <span className="font-bold text-lg sm:text-2xl tracking-widest text-purple-400 font-mono">
+            A MEMORY SERIES<span className="text-white text-[10px] sm:text-xs ml-1 font-light tracking-normal opacity-60">ORIGINAL</span>
           </span>
         </div>
-        <div className="text-xs tracking-widest text-white/50 uppercase font-light">
+        <div className="text-[10px] sm:text-xs tracking-widest text-white/50 uppercase font-light">
           Shreya • Season 1
         </div>
       </header>
 
       {/* Hero Featured Card */}
-      <main className="relative z-20 max-w-7xl mx-auto px-8 pt-10 pb-16">
+      <main className="relative z-20 max-w-7xl mx-auto px-4 sm:px-8 pt-6 sm:pt-10 pb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="max-w-2xl"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/20 border border-purple-400/30 text-purple-300 text-xs tracking-widest uppercase mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/20 border border-purple-400/30 text-purple-300 text-[10px] sm:text-xs tracking-widest uppercase mb-4">
             <span className="size-2 rounded-full bg-purple-400 animate-pulse" />
             Limited Series • 9 Episodes
           </div>
 
-          <h1 className="font-(family-name:--font-display) text-5xl sm:text-7xl font-light tracking-tight text-white mb-4">
+          <h1 className="font-(family-name:--font-display) text-4xl sm:text-6xl md:text-7xl font-light tracking-tight text-white mb-4">
             A Memory Series
           </h1>
 
-          <p className="text-lg text-white/70 font-light leading-relaxed mb-8">
+          <p className="text-sm sm:text-lg text-white/70 font-light leading-relaxed mb-6 sm:mb-8">
             An interactive memory film celebrating our journey, rainy walks, late-night talks, and all the quiet moments in between.
           </p>
 
           <div className="flex items-center gap-4">
             <button
               onClick={onPlayAll}
-              className="flex items-center gap-3 px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-white/90 transition-all transform hover:scale-105 shadow-lg shadow-white/10"
+              className="flex items-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-black font-semibold rounded-lg hover:bg-white/90 transition-all transform hover:scale-105 shadow-lg shadow-white/10 text-sm sm:text-base"
             >
-              <span className="text-xl">▶</span> Play Full Journey
+              <span className="text-lg sm:text-xl">▶</span> Play Full Journey
             </button>
           </div>
         </motion.div>

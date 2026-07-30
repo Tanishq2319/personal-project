@@ -150,12 +150,12 @@ export default function Sequence() {
 
       {/* Clean minimal floating navigation during active chapters */}
       {step > 0 && (
-        <div className="fixed top-6 right-6 z-50 flex items-center gap-3">
+        <div className="fixed top-4 right-4 sm:top-6 sm:right-6 z-50 flex items-center gap-3">
           <button
             onClick={() => setStep(-1)}
-            className="rounded-full border border-white/20 bg-black/70 px-5 py-2 text-xs tracking-widest uppercase text-white backdrop-blur-md transition-all hover:border-purple-400 hover:bg-purple-950/80 shadow-lg"
+            className="rounded-full border border-white/20 bg-black/80 px-3.5 sm:px-5 py-1.5 sm:py-2 text-[10px] sm:text-xs tracking-widest uppercase text-white backdrop-blur-md transition-all hover:border-purple-400 hover:bg-purple-950/80 shadow-lg"
           >
-            ☰ Episodes Hub
+            ☰ Hub
           </button>
         </div>
       )}
@@ -163,11 +163,11 @@ export default function Sequence() {
       {step > 0 && (
         <>
           {/* chapter progress */}
-          <div className="fixed top-6 left-1/2 z-40 flex -translate-x-1/2 gap-2">
+          <div className="fixed top-4 sm:top-6 left-1/2 z-40 flex -translate-x-1/2 gap-1.5 sm:gap-2">
             {SCENES.map((_, n) => (
               <span
                 key={n}
-                className={`h-px w-6 transition-colors duration-700 ${
+                className={`h-px w-3.5 sm:w-6 transition-colors duration-700 ${
                   n <= i ? "bg-(--color-lavender)/80" : "bg-white/15"
                 }`}
               />
@@ -178,9 +178,9 @@ export default function Sequence() {
           {i < SCENES.length - 1 && (
             <button
               onClick={() => setStep((s) => s + 1)}
-              className="fixed right-6 bottom-6 z-40 text-xs tracking-[0.3em] text-white/25 uppercase transition-colors duration-500 hover:text-white/70"
+              className="fixed right-4 bottom-4 sm:right-6 sm:bottom-6 z-40 text-[10px] sm:text-xs tracking-[0.3em] text-white/35 uppercase transition-colors duration-500 hover:text-white/80 bg-black/40 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10"
             >
-              next
+              next ➔
             </button>
           )}
         </>
