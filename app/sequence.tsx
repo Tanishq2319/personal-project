@@ -227,7 +227,7 @@ function Music() {
 
   return (
     <>
-      <audio ref={ref} src="/baarish.mp3" loop preload="none" />
+      <audio ref={ref} src="/those_eyes.mp3" loop preload="none" />
       <button
         onClick={toggle}
         className="fixed bottom-6 left-6 z-40 text-xs tracking-[0.3em] text-white/30 uppercase transition-colors duration-500 hover:text-white/70"
