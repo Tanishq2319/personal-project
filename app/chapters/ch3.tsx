@@ -1,13 +1,12 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { Backdrop, EASE, Polaroid, Tint, TitleCard, useParallax } from "../ui";
+import { useEffect, useRef, useState } from "react";
+import { Backdrop, EASE, Line, Polaroid, Tint, TitleCard, useParallax } from "../ui";
 import { STOCK, img } from "../unsplash";
 
 const ACCENT = "var(--color-lavender)";
 
-// Drop matching files into /public/photos/ and they appear on their own.
 const MEMORIES = [
   {
     title: "Mudcups",
@@ -92,9 +91,68 @@ const MEMORIES = [
 ];
 
 const TITLE_OUT = 6.5;
-const PER = 7.5; // seconds per memory
+const PER = 7.5;
 export const DURATION = TITLE_OUT + MEMORIES.length * PER + 3;
 
+// ── Canvas rain ──────────────────────────────────────────────────────────────
+function RainCanvas() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current!;
+    const ctx = canvas.getContext("2d")!;
+    let raf: number;
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resize();
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas);
+
+    const drops = Array.from({ length: 120 }, () => ({
+      x: Math.random(),
+      y: Math.random(),
+      len: 8 + Math.random() * 14,
+      speed: 0.004 + Math.random() * 0.006,
+      alpha: 0.15 + Math.random() * 0.3,
+      width: 0.5 + Math.random() * 0.8,
+    }));
+
+    function draw() {
+      const W = canvas.width;
+      const H = canvas.height;
+      ctx.clearRect(0, 0, W, H);
+      drops.forEach((d) => {
+        d.y += d.speed;
+        if (d.y > 1) { d.y = -d.len / H; d.x = Math.random(); }
+        ctx.save();
+        ctx.globalAlpha = d.alpha;
+        ctx.strokeStyle = "#a5c8e4";
+        ctx.lineWidth = d.width;
+        ctx.beginPath();
+        ctx.moveTo(d.x * W, d.y * H);
+        ctx.lineTo(d.x * W - 1, d.y * H + d.len);
+        ctx.stroke();
+        ctx.restore();
+      });
+      raf = requestAnimationFrame(draw);
+    }
+
+    raf = requestAnimationFrame(draw);
+    return () => { cancelAnimationFrame(raf); ro.disconnect(); };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none z-[1]"
+    />
+  );
+}
+
+// ── Main component ────────────────────────────────────────────────────────────
 export default function Ch3() {
   const [i, setI] = useState(-1);
   const { px, py } = useParallax(0.3);
@@ -113,11 +171,21 @@ export default function Ch3() {
   const m = MEMORIES[i];
 
   return (
-    <div className="relative grid min-h-screen place-items-center px-6">
+    <div className="relative grid h-full place-items-center px-6 overflow-hidden">
+      <RainCanvas />
+
       {m && <Backdrop key={`bd-${m.title}`} src={img(m.stock)} opacity={0.2} blur={10} />}
       <Tint color={m?.color ?? ACCENT} delay={0} strength={16} />
 
       <TitleCard label="Chapter Three" title="Our Moments" out={TITLE_OUT} accent={ACCENT} />
+
+      {/* "Remember that time" quote — visible briefly after title exits, before memories appear */}
+      <Line
+        delay={TITLE_OUT - 1.5}
+        className="absolute top-[52%] inset-x-0 text-center font-(family-name:--font-display) text-lg sm:text-2xl text-white/50 italic px-8 pointer-events-none z-[2]"
+      >
+        remember one time we went into the rain and played there
+      </Line>
 
       <AnimatePresence mode="wait">
         {m && (
@@ -128,7 +196,7 @@ export default function Ch3() {
             exit={{ opacity: 0 }}
             transition={{ duration: 1.3, ease: EASE }}
             style={{ x: px, y: py }}
-            className="grid w-full max-w-4xl items-center gap-12 sm:grid-cols-[minmax(0,300px)_1fr]"
+            className="relative z-[3] grid w-full max-w-4xl items-center gap-8 sm:gap-12 sm:grid-cols-[minmax(0,300px)_1fr]"
           >
             <motion.div
               initial={{ opacity: 0, scale: 1.06, rotate: -3, filter: "blur(12px)" }}
@@ -162,7 +230,7 @@ export default function Ch3() {
                 initial={{ opacity: 0, y: 22, filter: "blur(10px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{ duration: 1.6, delay: 0.3, ease: EASE }}
-                className="mt-5 font-(family-name:--font-display) text-4xl font-light sm:text-6xl"
+                className="mt-5 font-(family-name:--font-display) text-3xl font-light sm:text-6xl"
               >
                 {m.title}
               </motion.h2>
@@ -171,7 +239,7 @@ export default function Ch3() {
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.6, delay: 1.1, ease: EASE }}
-                className="mt-6 max-w-md text-lg leading-relaxed font-light text-white/65"
+                className="mt-6 max-w-md text-base sm:text-lg leading-relaxed font-light text-white/65"
               >
                 {m.story}
               </motion.p>
@@ -179,7 +247,7 @@ export default function Ch3() {
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.6, delay: 2.6, ease: EASE }}
-                className="mt-3 max-w-md text-base leading-relaxed font-light text-white/40"
+                className="mt-3 max-w-md text-sm sm:text-base leading-relaxed font-light text-white/40"
               >
                 {m.story2}
               </motion.p>
@@ -188,9 +256,9 @@ export default function Ch3() {
         )}
       </AnimatePresence>
 
-      {/* filmstrip: where we are in the reel */}
+      {/* filmstrip */}
       {i >= 0 && (
-        <div className="absolute bottom-14 flex gap-1.5">
+        <div className="absolute bottom-14 flex gap-1.5 z-[3]">
           {MEMORIES.map((mm, n) => (
             <motion.span
               key={mm.title}
@@ -208,4 +276,3 @@ export default function Ch3() {
     </div>
   );
 }
-

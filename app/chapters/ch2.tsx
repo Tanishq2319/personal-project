@@ -48,7 +48,7 @@ export default function Ch2() {
   const { px, py } = useParallax(0.25);
 
   return (
-    <div className="relative grid min-h-screen place-items-center px-6 py-24">
+    <div className="relative grid h-full place-items-center px-6">
       <Backdrop src={img(STOCK.orchid)} opacity={0.25} blur={6} />
       <Tint color={ACCENT} delay={TITLE_OUT - 2} strength={16} />
 

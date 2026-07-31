@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
@@ -208,7 +208,7 @@ export default function Ch6() {
   };
 
   return (
-    <div className="relative grid min-h-screen place-items-center px-6 overflow-hidden select-none bg-[#070712]">
+    <div className="relative grid h-full place-items-center px-6 overflow-hidden select-none bg-[#070712]">
       <Backdrop src={img(STOCK.stars)} opacity={0.25} blur={4} />
       <Tint color={activeStar !== null ? THINGS[activeStar].c : ACCENT} strength={18} />
 

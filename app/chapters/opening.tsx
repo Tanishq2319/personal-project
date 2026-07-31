@@ -17,7 +17,7 @@ export default function Opening({ onBegin }: { onBegin: () => void }) {
   const { px, py } = useParallax(0.3);
 
   return (
-    <div className="relative grid min-h-screen place-items-center px-4 text-center overflow-hidden bg-[#0B0B0D]">
+    <div className="relative grid h-full place-items-center px-4 text-center overflow-hidden bg-[#0B0B0D]">
       <motion.div style={{ x: px, y: py }} className="relative w-full max-w-2xl px-2">
         {BEATS.map((b, i) => (
           <motion.p

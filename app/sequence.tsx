@@ -125,6 +125,7 @@ export default function Sequence() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
+          className="fixed inset-0 overflow-hidden"
         >
           {step === -3 ? (
             <RainGame onUnlock={() => setStep(0)} />

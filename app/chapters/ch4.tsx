@@ -83,7 +83,7 @@ export default function Ch4() {
   return (
     <div
       onClick={() => setHeavy(true)}
-      className="relative grid min-h-screen place-items-center overflow-hidden px-6"
+      className="relative grid h-full place-items-center overflow-hidden px-6"
     >
       <Backdrop src={img(STOCK.rainStreet)} opacity={heavy ? 0.4 : 0.25} blur={wiped ? 2 : 12} />
       <Tint color={ACCENT} strength={heavy ? 28 : 16} />

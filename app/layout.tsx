@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className="relative min-h-screen overflow-x-hidden antialiased">
+      <body className="relative h-[100dvh] w-screen overflow-hidden antialiased">
         <div className="aurora pointer-events-none fixed inset-0 -z-20" />
         <Starfield />
         {children}

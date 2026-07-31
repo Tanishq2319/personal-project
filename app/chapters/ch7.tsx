@@ -26,7 +26,7 @@ export default function Ch7() {
   const { px, py } = useParallax(0.2);
 
   return (
-    <div className="relative grid min-h-screen place-items-center px-6 py-24">
+    <div className="relative grid h-full place-items-center px-6">
       <Backdrop src={img(STOCK.letter)} opacity={0.13} blur={9} />
       <Tint color={ACCENT} strength={12} />
 

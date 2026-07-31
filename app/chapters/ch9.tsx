@@ -9,7 +9,7 @@ export const DURATION = 35;
 
 export default function Ch9() {
   return (
-    <div className="relative grid min-h-screen place-items-center px-6 py-20 bg-[#0B0B0D]">
+    <div className="relative grid h-full place-items-center px-6 bg-[#0B0B0D]">
       <Backdrop src={img(STOCK.stars)} opacity={0.3} blur={5} />
       <Tint color={ACCENT} strength={22} />
 

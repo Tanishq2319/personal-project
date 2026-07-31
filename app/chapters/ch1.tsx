@@ -48,7 +48,7 @@ export default function Ch1() {
   const { px, py } = useParallax(0.35);
 
   return (
-    <div className="relative grid min-h-screen place-items-center px-6 py-20 bg-[#0B0B0D]">
+    <div className="relative h-full overflow-y-auto overflow-x-hidden bg-[#0B0B0D]">
       <Backdrop src={img(STOCK.autumn)} opacity={0.3} blur={4} />
       <Tint color={ACCENT} delay={TITLE_OUT - 2} strength={20} />
 
@@ -60,19 +60,13 @@ export default function Ch1() {
         accent={ACCENT}
       />
 
-      <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2, delay: TITLE_OUT - 0.8 }}
-        style={{ x: px, y: py }}
-        className="relative w-full max-w-3xl my-12"
-      >
-        <div className="absolute top-3 bottom-10 left-[9px] w-px bg-white/10" />
+      <div className="relative w-full max-w-3xl mx-auto px-6 pt-24 pb-16">
+        <div className="absolute top-3 bottom-10 left-[calc(1.5rem+9px)] sm:left-[calc(1.5rem+9px)] w-px bg-white/10" />
         <motion.div
           initial={{ scaleY: 0 }}
           animate={{ scaleY: 1 }}
           transition={{ duration: TOTAL_BEATS, delay: TITLE_OUT, ease: "linear" }}
-          className="absolute top-3 bottom-10 left-[9px] w-px origin-top bg-linear-to-b from-(--color-ember) via-purple-500 to-(--color-lavender)"
+          className="absolute top-3 bottom-10 left-[calc(1.5rem+9px)] w-px origin-top bg-linear-to-b from-(--color-ember) via-purple-500 to-(--color-lavender)"
         />
 
         {BEATS.map((b, i) => {
@@ -123,7 +117,7 @@ export default function Ch1() {
         >
           Everything after this day was built on that one single afternoon.
         </Line>
-      </motion.section>
+      </div>
     </div>
   );
 }
