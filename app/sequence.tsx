@@ -118,38 +118,41 @@ export default function Sequence() {
 
   return (
     <>
+      {/* Netflix Intro renders OUTSIDE AnimatePresence so its own timings aren't overridden */}
+      {step === -2 && <NetflixIntro onComplete={() => setStep(-1)} />}
+
       <AnimatePresence mode="wait">
-        <motion.div
-          key={step}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
-          className="fixed inset-0"
-        >
-          {step === -3 ? (
-            <RainGame onUnlock={() => setStep(0)} />
-          ) : step === -2 ? (
-            <NetflixIntro onComplete={() => setStep(-1)} />
-          ) : step === -1 ? (
-            <NetflixHub
-              onPlayAll={() => setStep(1)}
-              onSelectChapter={(chId) => setStep(chId)}
-              visitedChapters={visited}
-              directorsCutUnlocked={directorsCutUnlocked}
-              onDirectorsCut={() => { unlockAchievement("directors_cut"); setStep(10); }}
-            />
-          ) : step === 0 ? (
-            <Opening onBegin={() => {
-              if (typeof window !== "undefined") window.dispatchEvent(new Event("start-music"));
-              setStep(-2);
-            }} />
-          ) : step === 10 ? (
-            <Ch10 />
-          ) : (
-            scene?.el
-          )}
-        </motion.div>
+        {step !== -2 && (
+          <motion.div
+            key={step}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+            className="fixed inset-0"
+          >
+            {step === -3 ? (
+              <RainGame onUnlock={() => setStep(0)} />
+            ) : step === -1 ? (
+              <NetflixHub
+                onPlayAll={() => setStep(1)}
+                onSelectChapter={(chId) => setStep(chId)}
+                visitedChapters={visited}
+                directorsCutUnlocked={directorsCutUnlocked}
+                onDirectorsCut={() => { unlockAchievement("directors_cut"); setStep(10); }}
+              />
+            ) : step === 0 ? (
+              <Opening onBegin={() => {
+                if (typeof window !== "undefined") window.dispatchEvent(new Event("start-music"));
+                setStep(-2);
+              }} />
+            ) : step === 10 ? (
+              <Ch10 />
+            ) : (
+              scene?.el
+            )}
+          </motion.div>
+        )}
       </AnimatePresence>
 
       {/* Clean minimal floating navigation during active chapters */}
