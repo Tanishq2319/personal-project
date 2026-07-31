@@ -171,7 +171,7 @@ export default function Ch3() {
   const m = MEMORIES[i];
 
   return (
-    <div className="relative h-full flex flex-col items-center justify-center px-4 sm:px-6 overflow-hidden">
+    <div className="relative h-full scroll-touch overflow-x-hidden flex flex-col items-center justify-start pt-20 pb-24 px-4 sm:px-6">
       <RainCanvas />
 
       {m && <Backdrop key={`bd-${m.title}`} src={img(m.stock)} opacity={0.2} blur={10} />}

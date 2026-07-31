@@ -26,19 +26,20 @@ export default function Ch7() {
   const { px, py } = useParallax(0.2);
 
   return (
-    <div className="relative grid h-full place-items-center px-6">
+    <div className="relative h-full scroll-touch overflow-x-hidden bg-[#0B0B0D]">
       <Backdrop src={img(STOCK.letter)} opacity={0.13} blur={9} />
       <Tint color={ACCENT} strength={12} />
 
       <TitleCard label="Chapter Seven" title="A Letter" out={TITLE_OUT} accent={ACCENT} />
 
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2.4, delay: TITLE_OUT - 0.8, ease: EASE }}
-        style={{ x: px, y: py }}
-        className="relative w-full max-w-xl overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-10 backdrop-blur-md sm:p-14"
-      >
+      <div className="w-full max-w-xl mx-auto px-6 pt-24 pb-24">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 2.4, delay: TITLE_OUT - 0.8, ease: EASE }}
+          style={{ x: px, y: py }}
+          className="relative w-full overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-8 sm:p-14 backdrop-blur-md"
+        >
         {/* warm light from the top-left corner of the page */}
         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(70%_50%_at_10%_0%,color-mix(in_oklab,var(--color-ember)_16%,transparent),transparent_70%)]" />
 
@@ -77,7 +78,8 @@ export default function Ch7() {
         >
           Whenever that is. I&apos;m not going anywhere.
         </Line>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 }

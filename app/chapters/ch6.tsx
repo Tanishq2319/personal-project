@@ -216,7 +216,7 @@ export default function Ch6() {
 
       {/* Main Interactive Constellation Map */}
       <div
-        className="relative h-[82vh] w-full max-w-6xl rounded-3xl border border-white/10 bg-black/40 backdrop-blur-md overflow-hidden"
+        className="relative h-[75vh] sm:h-[82vh] w-full max-w-6xl rounded-3xl border border-white/10 bg-black/40 backdrop-blur-md overflow-hidden"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         onClick={() => setActiveStar(null)}
