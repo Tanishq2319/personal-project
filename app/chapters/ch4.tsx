@@ -141,7 +141,13 @@ export default function Ch4() {
         <div className="space-y-7">
           <Line
             delay={TITLE_OUT + 1}
-            className="font-(family-name:--font-display) text-3xl leading-snug font-light text-white/85 sm:text-4xl"
+            className="font-(family-name:--font-display) text-3xl leading-snug font-light text-white/85 sm:text-4xl italic"
+          >
+            "remember one time we went into the rain and played there"
+          </Line>
+          <Line
+            delay={TITLE_OUT + 3}
+            className="font-(family-name:--font-display) text-2xl leading-snug font-light text-white/85 sm:text-3xl"
           >
             It started raining, and nobody suggested going home.
           </Line>

@@ -11,7 +11,7 @@ const MEMORIES = [
   {
     title: "Mudcups",
     when: "the usual spot",
-    stock: STOCK.cafe, src: "/photos/img1.jpg",
+    stock: STOCK.cafe,
     story: "A tiny corner table, a cup of coffee that always got cold because we were talking.",
     story2: "We lost track of time here more than anywhere else. The staff stopped asking if we needed anything else because they knew we were staying past closing.",
     color: "var(--color-ember)",
@@ -19,7 +19,7 @@ const MEMORIES = [
   {
     title: "VBHC",
     when: "an ordinary afternoon",
-    stock: STOCK.cityNight2, src: "/photos/img2.jpg",
+    stock: STOCK.cityNight2, src: "/photos/img1.jpg",
     story: "Nothing about this afternoon was planned or scheduled.",
     story2: "That's exactly why it's the one I replay in my head. Unscripted, effortless, and completely quiet.",
     color: "var(--color-lavender)",
@@ -27,23 +27,15 @@ const MEMORIES = [
   {
     title: "College Fest",
     when: "loudest day of the year",
-    stock: STOCK.cityNight, src: "/photos/img3.jpg",
+    stock: STOCK.cityNight,
     story: "Flashlights, music blasting, and hundreds of people moving in every direction.",
     story2: "Even in the middle of all that chaos, my eyes only searched for where you were standing.",
     color: "var(--color-royal)",
   },
   {
-    title: "Rain Walks",
-    when: "we should have waited it out",
-    stock: STOCK.rainStreet, src: "/photos/img4.jpg",
-    story: "There was dry shelter literally ten steps away under the canopy.",
-    story2: "Neither of us walked towards it. We just kept walking in the downpour, laughing at how soaked we were getting.",
-    color: "var(--color-steel)",
-  },
-  {
     title: "Gilly's",
     when: "terrible timing, great night",
-    stock: STOCK.cafe2, src: "/photos/img5.jpg",
+    stock: STOCK.cafe2, src: "/photos/img2.jpg",
     story: "A loud table, terrible noise levels, and the kind of uncontrollable laughter that makes your stomach hurt.",
     story2: "You always started laughing at your own joke halfway through telling it. You could never finish it with a straight face.",
     color: "var(--color-ember)",
@@ -51,7 +43,7 @@ const MEMORIES = [
   {
     title: "Late Night Calls",
     when: "past 2 AM",
-    stock: STOCK.bar2, src: "/photos/img6.jpg",
+    stock: STOCK.bar2,
     story: "Somewhere past midnight, the conversation stopped being about anything specific.",
     story2: "We talked about random memories, childhood fears, and silly thoughts. Neither of us wanted to say goodnight first.",
     color: "var(--color-royal)",
@@ -59,7 +51,7 @@ const MEMORIES = [
   {
     title: "Selfies",
     when: "twenty takes",
-    stock: STOCK.aurora, src: "/photos/selfies.jpg",
+    stock: STOCK.aurora, src: "/photos/img3.jpg",
     story: "You took twenty photos, picked one, and deleted the rest on your phone.",
     story2: "I kept all of them. Even the blurry ones where we were mid-laugh. Especially those.",
     color: "var(--color-rose)",
@@ -67,7 +59,7 @@ const MEMORIES = [
   {
     title: "Dark Bar",
     when: "low light",
-    stock: STOCK.bar, src: "/photos/darkbar.jpg",
+    stock: STOCK.bar,
     story: "Soft yellow lights, a quiet corner booth, and a feeling like time had paused.",
     story2: "We didn't check our phones once the whole evening.",
     color: "var(--color-navy)",
@@ -75,7 +67,7 @@ const MEMORIES = [
   {
     title: "Video Calls",
     when: "across time zones",
-    stock: STOCK.planeWing, src: "/photos/videocall.jpg",
+    stock: STOCK.planeWing, src: "/photos/img4.jpg",
     story: "A small phone screen trying its best to bridge thousands of miles.",
     story2: "Laggy connection, weird time differences, but seeing your smile instantly made the distance disappear.",
     color: "var(--color-steel)",
@@ -83,7 +75,7 @@ const MEMORIES = [
   {
     title: "The Unspoken Confession",
     when: "the hardest one",
-    stock: STOCK.rainWindow, src: "/photos/confession.jpg",
+    stock: STOCK.rainWindow,
     story: "I didn't say it like a movie script. I probably stumbled over my words.",
     story2: "But I meant every single syllable. And if I had to do it all over again, I'd say it the exact same way.",
     color: "var(--color-rose)",
@@ -179,19 +171,6 @@ export default function Ch3() {
 
       {/* Render TitleCard ONLY while in intro state */}
       {i < 0 && <TitleCard label="Chapter Three" title="Our Moments" out={TITLE_OUT} accent={ACCENT} />}
-
-      {/* Quote — displays clean during the 4-second intro before memories */}
-      {i < 0 && (
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
-          className="absolute inset-x-0 top-[62%] -translate-y-1/2 text-center font-(family-name:--font-display) text-base sm:text-2xl text-white/70 italic px-8 pointer-events-none z-[2]"
-        >
-          "remember one time we went into the rain and played there"
-        </motion.div>
-      )}
 
       <AnimatePresence mode="wait">
         {m && (
