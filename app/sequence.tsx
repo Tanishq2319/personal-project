@@ -53,6 +53,18 @@ export default function Sequence() {
   const [egg, setEgg] = useState(false);
   const [visited, setVisited] = useState<Set<number>>(getVisited);
   const directorsCutUnlocked = visited.size >= TOTAL_CHAPTERS;
+  const musicRef = useRef<HTMLAudioElement>(null);
+  const [musicOn, setMusicOn] = useState(false);
+
+  // Called directly in click handler to preserve user-gesture context
+  const startMusic = () => {
+    const a = musicRef.current;
+    if (a && a.paused) {
+      a.volume = 0.35;
+      void a.play().catch(() => {});
+      setMusicOn(true);
+    }
+  };
 
   const i = step - 1;
   const scene = SCENES[i];
@@ -143,7 +155,7 @@ export default function Sequence() {
               />
             ) : step === 0 ? (
               <Opening onBegin={() => {
-                if (typeof window !== "undefined") window.dispatchEvent(new Event("start-music"));
+                startMusic();
                 setStep(-2);
               }} />
             ) : step === 10 ? (
@@ -193,7 +205,7 @@ export default function Sequence() {
         </>
       )}
 
-      <Music />
+      <Music audioRef={musicRef} on={musicOn} setOn={setMusicOn} />
       <AchievementToasts />
       {/* Custom cursor — disabled during rain game which controls its own cursor */}
       <CustomCursor active={step !== -3} />
@@ -215,45 +227,29 @@ export default function Sequence() {
   );
 }
 
-function Music() {
-  const ref = useRef<HTMLAudioElement>(null);
-  const [on, setOn] = useState(false);
-
-  useEffect(() => {
-    const start = () => {
-      const a = ref.current;
-      if (a && a.paused) {
-        a.volume = 0.35;
-        void a.play().catch(() => {});
-        setOn(true);
-      }
-    };
-    window.addEventListener("start-music", start);
-    return () => window.removeEventListener("start-music", start);
-  }, []);
-
+function Music({ audioRef, on, setOn }: { audioRef: React.RefObject<HTMLAudioElement | null>; on: boolean; setOn: (v: boolean) => void }) {
   const toggle = () => {
-    const a = ref.current;
+    const a = audioRef.current;
     if (!a) return;
     if (on) {
       a.pause();
+      setOn(false);
     } else {
       a.volume = 0.35;
       void a.play().catch(() => {});
+      setOn(true);
     }
-    setOn(!on);
   };
 
   return (
     <>
-      <audio ref={ref} src="/those_eyes.mp3" loop preload="none" />
+      <audio ref={audioRef} src="/those_eyes.mp3" loop preload="auto" />
       <button
         onClick={toggle}
         className="fixed bottom-6 left-6 z-40 text-xs tracking-[0.3em] text-white/30 uppercase transition-colors duration-500 hover:text-white/70"
       >
-        {on ? "music off" : "music on"}
+        {on ? "♪ off" : "♪ on"}
       </button>
     </>
   );
 }
-
