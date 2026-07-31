@@ -140,7 +140,10 @@ export default function Sequence() {
               onDirectorsCut={() => { unlockAchievement("directors_cut"); setStep(10); }}
             />
           ) : step === 0 ? (
-            <Opening onBegin={() => setStep(-2)} />
+            <Opening onBegin={() => {
+              if (typeof window !== "undefined") window.dispatchEvent(new Event("start-music"));
+              setStep(-2);
+            }} />
           ) : step === 10 ? (
             <Ch10 />
           ) : (
@@ -212,6 +215,19 @@ export default function Sequence() {
 function Music() {
   const ref = useRef<HTMLAudioElement>(null);
   const [on, setOn] = useState(false);
+
+  useEffect(() => {
+    const start = () => {
+      const a = ref.current;
+      if (a && a.paused) {
+        a.volume = 0.35;
+        void a.play().catch(() => {});
+        setOn(true);
+      }
+    };
+    window.addEventListener("start-music", start);
+    return () => window.removeEventListener("start-music", start);
+  }, []);
 
   const toggle = () => {
     const a = ref.current;

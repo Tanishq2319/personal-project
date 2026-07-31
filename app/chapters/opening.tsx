@@ -7,10 +7,11 @@ const BEATS = [
   "Hi, Shreya.",
   "I know how much you love watching Netflix...",
   "...so I decided to take on the director's chair.",
+  "Being a coder, I figured I'd build you your own personal version.",
   "So let's begin. Grab your popcorn.",
 ];
 
-const HOLD = 3.5;
+const HOLD = 2.8;
 export const DURATION = BEATS.length * HOLD + 5;
 
 export default function Opening({ onBegin }: { onBegin: () => void }) {

@@ -9,7 +9,7 @@ export default function NetflixIntro({ onComplete }: { onComplete: () => void })
     <motion.div
       initial={{ opacity: 1 }}
       animate={{ opacity: [1, 1, 0] }}
-      transition={{ duration: 7, times: [0, 0.71, 1] }}
+      transition={{ duration: 8, times: [0, 0.75, 1] }}
       onAnimationComplete={onComplete}
       className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0B0B0D] overflow-hidden select-none"
     >
