@@ -11,6 +11,12 @@ const MEMES = [
   { text: "The 'Are you asleep?' texts", caption: "Spoiler: Neither of us was." },
   { text: "College fest chaos", caption: "Loud music, lost umbrellas, zero regrets." },
   { text: "The inside jokes nobody else got", caption: "One word and we'd lose it." },
+  { text: "The Valentine's Day Disaster", caption: "Three girls. One guy. Infinite regret." },
+  { text: "Gilly's Birthday Surprise", caption: "Still don't know how you planned it without me noticing." },
+  { text: "VBHC Afternoon", caption: "The most unplanned, perfect silence." },
+  { text: "Video Call Lag", caption: "Freezing mid-sentence with the worst possible facial expression." },
+  { text: "Twenty Selfie Takes", caption: "You kept one, I kept the nineteen blurry ones." },
+  { text: "The 'Just 5 More Minutes' Lie", caption: "Which always turned into another hour on the phone." },
 ];
 
 export const DURATION = 35;
