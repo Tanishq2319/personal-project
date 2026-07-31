@@ -171,13 +171,14 @@ export default function Ch3() {
   const m = MEMORIES[i];
 
   return (
-    <div className="relative h-full scroll-touch overflow-x-hidden flex flex-col items-center justify-center p-4 sm:p-8">
+    <div className="relative h-full scroll-touch overflow-x-hidden flex flex-col items-center justify-start pt-20 pb-28 px-4 sm:px-6">
       <RainCanvas />
 
       {m && <Backdrop key={`bd-${m.title}`} src={img(m.stock)} opacity={0.2} blur={10} />}
       <Tint color={m?.color ?? ACCENT} delay={0} strength={16} />
 
-      <TitleCard label="Chapter Three" title="Our Moments" out={TITLE_OUT} accent={ACCENT} />
+      {/* Render TitleCard ONLY while in intro state */}
+      {i < 0 && <TitleCard label="Chapter Three" title="Our Moments" out={TITLE_OUT} accent={ACCENT} />}
 
       {/* Quote — displays clean during the 4-second intro before memories */}
       {i < 0 && (
@@ -186,7 +187,7 @@ export default function Ch3() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
-          className="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center font-(family-name:--font-display) text-lg sm:text-2xl text-white/70 italic px-8 pointer-events-none z-[2]"
+          className="absolute inset-x-0 top-[62%] -translate-y-1/2 text-center font-(family-name:--font-display) text-base sm:text-2xl text-white/70 italic px-8 pointer-events-none z-[2]"
         >
           "remember one time we went into the rain and played there"
         </motion.div>
@@ -196,12 +197,12 @@ export default function Ch3() {
         {m && (
           <motion.div
             key={m.title}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.3, ease: EASE }}
+            transition={{ duration: 1.1, ease: EASE }}
             style={{ x: px, y: py }}
-            className="relative z-[3] w-full max-w-3xl my-auto flex flex-col sm:grid sm:grid-cols-[minmax(0,260px)_1fr] items-center gap-6 sm:gap-10 py-12"
+            className="relative z-[3] w-full max-w-3xl flex flex-col sm:grid sm:grid-cols-[minmax(0,250px)_1fr] items-center gap-6 sm:gap-10 my-auto"
           >
             <motion.div
               initial={{ opacity: 0, scale: 1.06, rotate: -3, filter: "blur(12px)" }}
