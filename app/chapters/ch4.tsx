@@ -9,6 +9,75 @@ const ACCENT = "var(--color-steel)";
 const TITLE_OUT = 6.5;
 export const DURATION = 42;
 
+function RainPlayer() {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [playing, setPlaying] = useState(false);
+
+  // Auto-play when chapter mounts (after user has already interacted with the page)
+  useEffect(() => {
+    const a = audioRef.current;
+    if (!a) return;
+    a.volume = 0.5;
+    const tryPlay = () => {
+      void a.play().then(() => setPlaying(true)).catch(() => {});
+    };
+    // Small delay so the chapter transition finishes first
+    const t = setTimeout(tryPlay, 800);
+    return () => {
+      clearTimeout(t);
+      a.pause();
+      a.currentTime = 0;
+    };
+  }, []);
+
+  const toggle = () => {
+    const a = audioRef.current;
+    if (!a) return;
+    if (playing) {
+      a.pause();
+      setPlaying(false);
+    } else {
+      void a.play().catch(() => {});
+      setPlaying(true);
+    }
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: TITLE_OUT + 1, duration: 1 }}
+      className="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-black/60 backdrop-blur-md border border-white/10 rounded-2xl px-4 py-3 cursor-pointer select-none hover:border-blue-400/40 transition-all"
+      onClick={toggle}
+    >
+      {/* Spinning vinyl disk */}
+      <div
+        className={`relative w-10 h-10 flex-shrink-0 transition-all ${playing ? "animate-spin [animation-duration:4s]" : ""}`}
+      >
+        <svg viewBox="0 0 40 40" className="w-full h-full">
+          {/* Outer vinyl */}
+          <circle cx="20" cy="20" r="19" fill="#1a1a2e" stroke="#7fb0c8" strokeWidth="0.5" />
+          {/* Grooves */}
+          {[6,9,12,15].map(r => (
+            <circle key={r} cx="20" cy="20" r={r + 3} fill="none" stroke="#7fb0c8" strokeWidth="0.3" opacity="0.4" />
+          ))}
+          {/* Label */}
+          <circle cx="20" cy="20" r="5" fill="#7fb0c8" opacity="0.8" />
+          <circle cx="20" cy="20" r="1.5" fill="#0B0B0D" />
+        </svg>
+      </div>
+
+      {/* Track info */}
+      <div className="flex flex-col min-w-0">
+        <span className="text-[11px] font-mono font-bold text-white truncate">Baarish Mein Phir</span>
+        <span className="text-[9px] font-mono text-white/40 truncate">Saahel · {playing ? "▶ Now Playing" : "⏸ Paused"}</span>
+      </div>
+
+      <audio ref={audioRef} src="/baarish.mp3" loop preload="auto" />
+    </motion.div>
+  );
+}
+
 export default function Ch4() {
   const [heavy, setHeavy] = useState(false);
   const { px, py } = useParallax(0.5);
@@ -85,6 +154,7 @@ export default function Ch4() {
       onClick={() => setHeavy(true)}
       className="relative h-full scroll-touch overflow-x-hidden bg-[#0B0B0D]"
     >
+      <RainPlayer />
       <Backdrop src={img(STOCK.rainStreet)} opacity={heavy ? 0.4 : 0.25} blur={wiped ? 2 : 12} />
       <Tint color={ACCENT} strength={heavy ? 28 : 16} />
 
