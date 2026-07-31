@@ -48,7 +48,7 @@ export default function Ch1() {
   const { px, py } = useParallax(0.35);
 
   return (
-    <div className="relative h-full overflow-y-auto overflow-x-hidden bg-[#0B0B0D]">
+    <div className="relative h-full scroll-touch overflow-x-hidden bg-[#0B0B0D]">
       <Backdrop src={img(STOCK.autumn)} opacity={0.3} blur={4} />
       <Tint color={ACCENT} delay={TITLE_OUT - 2} strength={20} />
 

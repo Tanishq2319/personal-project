@@ -36,7 +36,7 @@ const paragraphs = [
 
 export default function Ch10() {
   return (
-    <div className="relative h-full overflow-y-auto bg-[#07070F] text-white">
+    <div className="relative h-full scroll-touch bg-[#07070F] text-white">
 
       {/* Ambient glow */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">

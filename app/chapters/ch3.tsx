@@ -171,7 +171,7 @@ export default function Ch3() {
   const m = MEMORIES[i];
 
   return (
-    <div className="relative grid h-full place-items-center px-6 overflow-hidden">
+    <div className="relative h-full flex flex-col items-center justify-center px-4 sm:px-6 overflow-hidden">
       <RainCanvas />
 
       {m && <Backdrop key={`bd-${m.title}`} src={img(m.stock)} opacity={0.2} blur={10} />}
@@ -179,13 +179,15 @@ export default function Ch3() {
 
       <TitleCard label="Chapter Three" title="Our Moments" out={TITLE_OUT} accent={ACCENT} />
 
-      {/* "Remember that time" quote — visible briefly after title exits, before memories appear */}
-      <Line
-        delay={TITLE_OUT - 1.5}
-        className="absolute top-[52%] inset-x-0 text-center font-(family-name:--font-display) text-lg sm:text-2xl text-white/50 italic px-8 pointer-events-none z-[2]"
-      >
-        remember one time we went into the rain and played there
-      </Line>
+      {/* Quote — only show during intro before memories start */}
+      {i < 0 && (
+        <Line
+          delay={TITLE_OUT - 1.5}
+          className="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center font-(family-name:--font-display) text-base sm:text-2xl text-white/50 italic px-8 pointer-events-none z-[2]"
+        >
+          remember one time we went into the rain and played there
+        </Line>
+      )}
 
       <AnimatePresence mode="wait">
         {m && (
@@ -196,7 +198,7 @@ export default function Ch3() {
             exit={{ opacity: 0 }}
             transition={{ duration: 1.3, ease: EASE }}
             style={{ x: px, y: py }}
-            className="relative z-[3] grid w-full max-w-4xl items-center gap-8 sm:gap-12 sm:grid-cols-[minmax(0,300px)_1fr]"
+            className="relative z-[3] w-full max-w-4xl flex flex-col sm:grid sm:grid-cols-[minmax(0,280px)_1fr] items-center gap-6 sm:gap-12 pb-20"
           >
             <motion.div
               initial={{ opacity: 0, scale: 1.06, rotate: -3, filter: "blur(12px)" }}

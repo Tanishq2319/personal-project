@@ -104,7 +104,7 @@ export default function NetflixHub({
   const [activeHover, setActiveHover] = useState<Chapter>(CHAPTERS[0]);
 
   return (
-    <div className="relative h-full overflow-y-auto overflow-x-hidden bg-[#0B0B0D] text-white selection:bg-purple-500 selection:text-white">
+    <div className="relative h-full scroll-touch overflow-x-hidden bg-[#0B0B0D] text-white selection:bg-purple-500 selection:text-white">
       {/* Dynamic Ambient Hero Backdrop */}
       <div className="absolute top-0 left-0 right-0 h-[70vh] overflow-hidden pointer-events-none">
         <motion.div
