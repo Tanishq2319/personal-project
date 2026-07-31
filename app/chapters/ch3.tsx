@@ -11,7 +11,7 @@ const MEMORIES = [
   {
     title: "Mudcups",
     when: "the usual spot",
-    stock: STOCK.cafe, src: "/photos/mudcups.jpg",
+    stock: STOCK.cafe, src: "/photos/img1.jpg",
     story: "A tiny corner table, a cup of coffee that always got cold because we were talking.",
     story2: "We lost track of time here more than anywhere else. The staff stopped asking if we needed anything else because they knew we were staying past closing.",
     color: "var(--color-ember)",
@@ -19,7 +19,7 @@ const MEMORIES = [
   {
     title: "VBHC",
     when: "an ordinary afternoon",
-    stock: STOCK.cityNight2, src: "/photos/vbhc.jpg",
+    stock: STOCK.cityNight2, src: "/photos/img2.jpg",
     story: "Nothing about this afternoon was planned or scheduled.",
     story2: "That's exactly why it's the one I replay in my head. Unscripted, effortless, and completely quiet.",
     color: "var(--color-lavender)",
@@ -27,7 +27,7 @@ const MEMORIES = [
   {
     title: "College Fest",
     when: "loudest day of the year",
-    stock: STOCK.cityNight, src: "/photos/fest.jpg",
+    stock: STOCK.cityNight, src: "/photos/img3.jpg",
     story: "Flashlights, music blasting, and hundreds of people moving in every direction.",
     story2: "Even in the middle of all that chaos, my eyes only searched for where you were standing.",
     color: "var(--color-royal)",
@@ -35,7 +35,7 @@ const MEMORIES = [
   {
     title: "Rain Walks",
     when: "we should have waited it out",
-    stock: STOCK.rainStreet, src: "/photos/rain.jpg",
+    stock: STOCK.rainStreet, src: "/photos/img4.jpg",
     story: "There was dry shelter literally ten steps away under the canopy.",
     story2: "Neither of us walked towards it. We just kept walking in the downpour, laughing at how soaked we were getting.",
     color: "var(--color-steel)",
@@ -43,7 +43,7 @@ const MEMORIES = [
   {
     title: "Gilly's",
     when: "terrible timing, great night",
-    stock: STOCK.cafe2, src: "/photos/gillys.jpg",
+    stock: STOCK.cafe2, src: "/photos/img5.jpg",
     story: "A loud table, terrible noise levels, and the kind of uncontrollable laughter that makes your stomach hurt.",
     story2: "You always started laughing at your own joke halfway through telling it. You could never finish it with a straight face.",
     color: "var(--color-ember)",
@@ -51,7 +51,7 @@ const MEMORIES = [
   {
     title: "Late Night Calls",
     when: "past 2 AM",
-    stock: STOCK.bar2, src: "/photos/latenight.jpg",
+    stock: STOCK.bar2, src: "/photos/img6.jpg",
     story: "Somewhere past midnight, the conversation stopped being about anything specific.",
     story2: "We talked about random memories, childhood fears, and silly thoughts. Neither of us wanted to say goodnight first.",
     color: "var(--color-royal)",
