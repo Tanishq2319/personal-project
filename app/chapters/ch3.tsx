@@ -202,7 +202,7 @@ export default function Ch3() {
             exit={{ opacity: 0 }}
             transition={{ duration: 1.1, ease: EASE }}
             style={{ x: px, y: py }}
-            className="relative z-[3] w-full max-w-3xl flex flex-col sm:grid sm:grid-cols-[minmax(0,250px)_1fr] items-center gap-6 sm:gap-10 my-auto"
+            className="relative z-[3] w-full max-w-3xl flex flex-col sm:grid sm:grid-cols-[minmax(0,250px)_1fr] items-center gap-6 sm:gap-10 mt-8 sm:my-auto"
           >
             <motion.div
               initial={{ opacity: 0, scale: 1.06, rotate: -3, filter: "blur(12px)" }}

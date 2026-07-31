@@ -251,7 +251,7 @@ export default function Ch5() {
   }, [FLIGHT_DELAY, FLIGHT_DURATION, showStats]);
 
   return (
-    <div className="relative h-full flex flex-col bg-[#07070F] overflow-hidden">
+    <div className="relative h-full flex flex-col scroll-touch overflow-x-hidden bg-[#07070F]">
 
       {/* Ambient top glow */}
       <div className="pointer-events-none absolute inset-0">

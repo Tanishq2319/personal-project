@@ -8,7 +8,7 @@ export const DURATION = 34;
 
 export default function Ending() {
   return (
-    <div className="relative grid h-full place-items-center px-6 text-center overflow-hidden">
+    <div className="relative h-full scroll-touch overflow-x-hidden flex flex-col items-center justify-center px-6 text-center">
       <Backdrop src={img(STOCK.stars)} opacity={0.2} blur={5} />
       <Tint color="var(--color-royal)" strength={18} />
 

@@ -19,13 +19,13 @@ export default function Ch8() {
   const { px, py } = useParallax(0.3);
 
   return (
-    <div className="relative grid h-full place-items-center px-6 bg-[#0B0B0D]">
+    <div className="relative h-full scroll-touch overflow-x-hidden bg-[#0B0B0D]">
       <Backdrop src={img(STOCK.bar)} opacity={0.25} blur={6} />
       <Tint color={ACCENT} strength={20} />
 
       <TitleCard label="Episode Eight" title="Behind The Scenes" out={6} accent={ACCENT} />
 
-      <div className="w-full max-w-4xl text-center">
+      <div className="w-full max-w-4xl mx-auto px-6 pt-24 pb-20 text-center">
         <Line delay={5.5} className="text-xs tracking-[0.4em] text-purple-400 uppercase mb-8">
           Top 10 Inside Jokes & Unfiltered Memories
         </Line>

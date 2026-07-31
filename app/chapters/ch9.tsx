@@ -9,13 +9,13 @@ export const DURATION = 35;
 
 export default function Ch9() {
   return (
-    <div className="relative grid h-full place-items-center px-6 bg-[#0B0B0D]">
+    <div className="relative h-full scroll-touch overflow-x-hidden bg-[#0B0B0D]">
       <Backdrop src={img(STOCK.stars)} opacity={0.3} blur={5} />
       <Tint color={ACCENT} strength={22} />
 
       <TitleCard label="Episode Nine" title="The Soundtrack" out={6} accent={ACCENT} />
 
-      <div className="w-full max-w-xl text-center">
+      <div className="w-full max-w-xl mx-auto px-6 pt-24 pb-20 text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
