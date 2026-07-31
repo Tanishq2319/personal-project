@@ -9,7 +9,7 @@ export default function NetflixIntro({ onComplete }: { onComplete: () => void })
     <motion.div
       initial={{ opacity: 1 }}
       animate={{ opacity: [1, 1, 0] }}
-      transition={{ duration: 8, times: [0, 0.75, 1] }}
+      transition={{ duration: 6.5, times: [0, 0.9, 1] }}
       onAnimationComplete={onComplete}
       className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0B0B0D] overflow-hidden select-none"
     >
@@ -30,7 +30,7 @@ export default function NetflixIntro({ onComplete }: { onComplete: () => void })
           <motion.div
             initial={{ scaleX: 0, opacity: 0 }}
             animate={{ scaleX: [0, 1, 1], opacity: [0, 1, 0] }}
-            transition={{ duration: 2.6, times: [0, 0.45, 1], ease: "circOut" }}
+            transition={{ duration: 6, times: [0, 0.15, 1], ease: "circOut" }}
             className={`h-9 sm:h-12 w-40 sm:w-56 bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 ${glowStyle}`}
             style={{ transformOrigin: "center" }}
           />
@@ -38,7 +38,7 @@ export default function NetflixIntro({ onComplete }: { onComplete: () => void })
           <motion.div
             initial={{ scaleY: 0, opacity: 0 }}
             animate={{ scaleY: [0, 1, 1], opacity: [0, 1, 0] }}
-            transition={{ duration: 2.6, delay: 0.18, times: [0, 0.45, 1], ease: "circOut" }}
+            transition={{ duration: 6, delay: 0.1, times: [0, 0.15, 1], ease: "circOut" }}
             className={`h-36 sm:h-48 w-9 sm:w-12 bg-gradient-to-b from-pink-500 via-purple-600 to-indigo-600 ${glowStyle}`}
             style={{ transformOrigin: "top" }}
           />
@@ -48,7 +48,7 @@ export default function NetflixIntro({ onComplete }: { onComplete: () => void })
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: [0, 1, 0], y: [10, 0, 0] }}
-          transition={{ duration: 2.4, delay: 0.8, times: [0, 0.3, 1] }}
+          transition={{ duration: 5.6, delay: 0.4, times: [0, 0.15, 1] }}
           className="flex flex-col items-center gap-2 pointer-events-none text-center px-4"
         >
           <span className="font-mono text-2xl sm:text-4xl md:text-5xl font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-purple-400 drop-shadow-[0_0_35px_rgba(168,85,247,0.9)]">
