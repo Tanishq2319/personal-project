@@ -83,7 +83,7 @@ export default function Ch4() {
   return (
     <div
       onClick={() => setHeavy(true)}
-      className="relative grid h-full place-items-center overflow-hidden px-6"
+      className="relative h-full scroll-touch overflow-x-hidden bg-[#0B0B0D]"
     >
       <Backdrop src={img(STOCK.rainStreet)} opacity={heavy ? 0.4 : 0.25} blur={wiped ? 2 : 12} />
       <Tint color={ACCENT} strength={heavy ? 28 : 16} />
@@ -107,12 +107,13 @@ export default function Ch4() {
 
       <TitleCard label="Chapter Four" title="Rain" out={TITLE_OUT} accent={ACCENT} />
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2.4, delay: TITLE_OUT - 0.8 }}
-        className="relative z-0 grid w-full max-w-5xl items-center gap-12 sm:grid-cols-2"
-      >
+      <div className="w-full max-w-5xl mx-auto px-6 pt-24 pb-28">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2.4, delay: TITLE_OUT - 0.8 }}
+          className="relative z-0 grid w-full items-center gap-8 sm:gap-12 sm:grid-cols-2"
+        >
         <motion.div style={{ x: px, y: py }} className="flex gap-6">
           <Polaroid
             src="/photos/rain-2.jpg"
@@ -170,6 +171,7 @@ export default function Ch4() {
         </div>
       </motion.div>
     </div>
-  );
+  </div>
+);
 }
 
