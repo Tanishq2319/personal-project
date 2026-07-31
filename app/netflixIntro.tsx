@@ -1,16 +1,21 @@
 "use client";
 
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 
 export default function NetflixIntro({ onComplete }: { onComplete: () => void }) {
   const glowStyle = "shadow-[0_0_60px_15px_rgba(168,85,247,0.7)]";
+
+  useEffect(() => {
+    const timer = setTimeout(onComplete, 6500);
+    return () => clearTimeout(timer);
+  }, [onComplete]);
 
   return (
     <motion.div
       initial={{ opacity: 1 }}
       animate={{ opacity: [1, 1, 0] }}
       transition={{ duration: 6.5, times: [0, 0.9, 1] }}
-      onAnimationComplete={onComplete}
       className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0B0B0D] overflow-hidden select-none"
     >
       {/* Dynamic Ambient Lens Flare */}
