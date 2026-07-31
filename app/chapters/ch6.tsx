@@ -303,8 +303,14 @@ export default function Ch6() {
                     animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
                     exit={{ opacity: 0, y: popoverAbove ? 10 : -10, scale: 0.95, filter: "blur(8px)" }}
                     transition={{ duration: 0.4, ease: EASE }}
-                    className={`absolute left-1/2 w-72 -translate-x-1/2 z-50 rounded-2xl border border-purple-400/50 bg-[#0c0a1a]/95 p-5 backdrop-blur-2xl shadow-[0_25px_60px_rgba(0,0,0,0.95)] pointer-events-auto ${
+                    className={`absolute z-50 rounded-2xl border border-purple-400/50 bg-[#0c0a1a]/95 p-5 backdrop-blur-2xl shadow-[0_25px_60px_rgba(0,0,0,0.95)] pointer-events-auto w-[250px] sm:w-72 ${
                       popoverAbove ? "bottom-full mb-3" : "top-full mt-3"
+                    } ${
+                      th.x < 35 
+                        ? "left-1/2 -translate-x-[15%] sm:-translate-x-[20%]" 
+                        : th.x > 65 
+                          ? "left-1/2 -translate-x-[85%] sm:-translate-x-[80%]" 
+                          : "left-1/2 -translate-x-1/2"
                     }`}
                     onClick={(e) => e.stopPropagation()}
                   >
