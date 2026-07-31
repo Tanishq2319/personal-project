@@ -90,6 +90,13 @@ export default function Ch10() {
           </div>
         </ScrollReveal>
 
+        {/* Flower Photo */}
+        <ScrollReveal delay={250}>
+          <div className="mx-auto mt-16 w-full max-w-xs overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-3 backdrop-blur-md transform rotate-[-2deg] shadow-2xl">
+             <img src="/photos/flower.jpg" alt="Sunflower" className="w-full h-auto rounded-xl object-cover" />
+          </div>
+        </ScrollReveal>
+
         {/* Bottom label */}
         <ScrollReveal delay={300}>
           <div className="text-center pt-8 border-t border-white/5">
