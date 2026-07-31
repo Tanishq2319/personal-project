@@ -11,7 +11,7 @@ export const DURATION = 65;
 // Great-circle arc from India (Bangalore approx) to USA (NYC approx)
 // We map these onto a simplified flat projection for our canvas
 const INDIA = { x: 0.71, y: 0.49, name: "India", city: "Bangalore" };
-const USA   = { x: 0.18, y: 0.36, name: "USA", city: "New York" };
+const USA   = { x: 0.24, y: 0.36, name: "USA", city: "Ohio" };
 
 function lerp(a: number, b: number, t: number) { return a + (b - a) * t; }
 
@@ -273,7 +273,7 @@ export default function Ch5() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: TITLE_OUT + 14, duration: 1 }}
             className="absolute"
-            style={{ left: "70%", top: "52%", transform: "translate(-50%, 0)" }}
+            style={{ left: `${INDIA.x * 100}%`, top: `${INDIA.y * 100 + 4}%`, transform: "translate(-50%, 0)" }}
           >
             <div className="flex flex-col items-center gap-1">
               <span className="text-[10px] font-mono tracking-[0.4em] text-white/40 uppercase">Home</span>
@@ -291,11 +291,11 @@ export default function Ch5() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: TITLE_OUT + 14.5, duration: 1 }}
             className="absolute"
-            style={{ left: "16%", top: "44%", transform: "translate(-50%, 0)" }}
+            style={{ left: `${USA.x * 100}%`, top: `${USA.y * 100 + 4}%`, transform: "translate(-50%, 0)" }}
           >
             <div className="flex flex-col items-center gap-1">
               <span className="text-[10px] font-mono tracking-[0.4em] text-purple-400 uppercase">Shreya ✦</span>
-              <span className="text-sm font-mono font-bold text-purple-300">New York, USA</span>
+              <span className="text-sm font-mono font-bold text-purple-300">Ohio, USA</span>
               <div className="bg-black/50 backdrop-blur-sm border border-purple-500/20 rounded-lg px-3 py-1.5 text-center mt-1">
                 <span className="text-xs font-mono text-white/50 block">EST</span>
                 <span className="text-base font-mono font-bold text-purple-200 tabular-nums">{times.usa || "--:--:--"}</span>
@@ -325,7 +325,7 @@ export default function Ch5() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: TITLE_OUT + 15, duration: 1.5 }}
-            className="absolute right-4 top-14 sm:right-6 sm:top-6 z-30"
+            className="absolute right-4 top-20 sm:right-6 sm:top-6 z-30"
           >
             <div className="bg-black/70 backdrop-blur-md border border-white/10 rounded-xl px-3 py-2 sm:px-4 sm:py-3 text-center">
               <span className="text-[9px] sm:text-[10px] font-mono tracking-widest text-white/30 uppercase block mb-0.5">Time Gap</span>
