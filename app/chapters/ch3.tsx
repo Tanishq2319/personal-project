@@ -90,7 +90,7 @@ const MEMORIES = [
   },
 ];
 
-const TITLE_OUT = 6.5;
+const TITLE_OUT = 4.0;
 const PER = 7.5;
 export const DURATION = TITLE_OUT + MEMORIES.length * PER + 3;
 
@@ -158,7 +158,7 @@ export default function Ch3() {
   const { px, py } = useParallax(0.3);
 
   useEffect(() => {
-    const start = setTimeout(() => setI(0), (TITLE_OUT - 0.5) * 1000);
+    const start = setTimeout(() => setI(0), TITLE_OUT * 1000);
     return () => clearTimeout(start);
   }, []);
 
@@ -171,7 +171,7 @@ export default function Ch3() {
   const m = MEMORIES[i];
 
   return (
-    <div className="relative h-full scroll-touch overflow-x-hidden flex flex-col items-center justify-start pt-20 pb-24 px-4 sm:px-6">
+    <div className="relative h-full scroll-touch overflow-x-hidden flex flex-col items-center justify-center p-4 sm:p-8">
       <RainCanvas />
 
       {m && <Backdrop key={`bd-${m.title}`} src={img(m.stock)} opacity={0.2} blur={10} />}
@@ -179,14 +179,17 @@ export default function Ch3() {
 
       <TitleCard label="Chapter Three" title="Our Moments" out={TITLE_OUT} accent={ACCENT} />
 
-      {/* Quote — only show during intro before memories start */}
+      {/* Quote — displays clean during the 4-second intro before memories */}
       {i < 0 && (
-        <Line
-          delay={TITLE_OUT - 1.5}
-          className="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center font-(family-name:--font-display) text-base sm:text-2xl text-white/50 italic px-8 pointer-events-none z-[2]"
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center font-(family-name:--font-display) text-lg sm:text-2xl text-white/70 italic px-8 pointer-events-none z-[2]"
         >
-          remember one time we went into the rain and played there
-        </Line>
+          "remember one time we went into the rain and played there"
+        </motion.div>
       )}
 
       <AnimatePresence mode="wait">
@@ -198,7 +201,7 @@ export default function Ch3() {
             exit={{ opacity: 0 }}
             transition={{ duration: 1.3, ease: EASE }}
             style={{ x: px, y: py }}
-            className="relative z-[3] w-full max-w-4xl flex flex-col sm:grid sm:grid-cols-[minmax(0,280px)_1fr] items-center gap-6 sm:gap-12 pb-20"
+            className="relative z-[3] w-full max-w-3xl my-auto flex flex-col sm:grid sm:grid-cols-[minmax(0,260px)_1fr] items-center gap-6 sm:gap-10 py-12"
           >
             <motion.div
               initial={{ opacity: 0, scale: 1.06, rotate: -3, filter: "blur(12px)" }}
