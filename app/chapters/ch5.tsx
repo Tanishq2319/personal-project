@@ -364,7 +364,6 @@ export default function Ch5() {
           className="flex items-center justify-center gap-6 mt-2 flex-wrap"
         >
           {[
-            { label: "Flight Time", value: "~17h" },
             { label: "Distance", value: "13,800 km" },
             { label: "Time Apart", value: "9.5 hrs" },
             { label: "Timezone Gap", value: times.diff || "9.5h ahead" },

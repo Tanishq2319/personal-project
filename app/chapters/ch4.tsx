@@ -9,6 +9,65 @@ const ACCENT = "var(--color-steel)";
 const TITLE_OUT = 6.5;
 export const DURATION = 42;
 
+// ── Canvas rain ──────────────────────────────────────────────────────────────
+function RainCanvas({ heavy }: { heavy: boolean }) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current!;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d")!;
+    let raf: number;
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resize();
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas);
+
+    const count = heavy ? 250 : 120;
+    const drops = Array.from({ length: count }, () => ({
+      x: Math.random(),
+      y: Math.random(),
+      len: 8 + Math.random() * 16,
+      speed: (0.004 + Math.random() * 0.006) * (heavy ? 1.8 : 1),
+      alpha: 0.2 + Math.random() * 0.35,
+      width: 0.6 + Math.random() * 0.9,
+    }));
+
+    function draw() {
+      const W = canvas.width;
+      const H = canvas.height;
+      ctx.clearRect(0, 0, W, H);
+      drops.forEach((d) => {
+        d.y += d.speed;
+        if (d.y > 1) { d.y = -d.len / H; d.x = Math.random(); }
+        ctx.save();
+        ctx.globalAlpha = d.alpha;
+        ctx.strokeStyle = "#a5c8e4";
+        ctx.lineWidth = d.width;
+        ctx.beginPath();
+        ctx.moveTo(d.x * W, d.y * H);
+        ctx.lineTo(d.x * W - 1, d.y * H + d.len);
+        ctx.stroke();
+        ctx.restore();
+      });
+      raf = requestAnimationFrame(draw);
+    }
+
+    raf = requestAnimationFrame(draw);
+    return () => { cancelAnimationFrame(raf); ro.disconnect(); };
+  }, [heavy]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none z-[5]"
+    />
+  );
+}
 
 export default function Ch4() {
   const [heavy, setHeavy] = useState(false);
@@ -88,6 +147,7 @@ export default function Ch4() {
     >
       <Backdrop src={img(STOCK.rainStreet)} opacity={heavy ? 0.4 : 0.25} blur={wiped ? 2 : 12} />
       <Tint color={ACCENT} strength={heavy ? 28 : 16} />
+      <RainCanvas heavy={heavy} />
 
       {/* Foggy glass canvas overlay */}
       <canvas

@@ -93,6 +93,18 @@ export default function Sequence() {
     if (step >= 1 && step <= 9) markVisited(step);
   }, [step, markVisited]);
 
+  // Pause main background music during Episode 8 (The Soundtrack) so Baarish plays
+  useEffect(() => {
+    const a = musicRef.current;
+    if (!a) return;
+    if (step === 8) {
+      a.pause();
+    } else if (musicOn && a.paused) {
+      a.volume = 0.35;
+      void a.play().catch(() => {});
+    }
+  }, [step, musicOn]);
+
   // auto-advance when in full journey mode
   useEffect(() => {
     if (step <= 0 || !scene || i >= SCENES.length - 1) return;

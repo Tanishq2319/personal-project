@@ -7,7 +7,7 @@ import { STOCK, img } from "../unsplash";
 const ACCENT = "var(--color-ember)";
 
 const MEMES = [
-  { text: "3 AM Coffee Orders at Mudcups", caption: "Always extra sugar, always complaining it's late." },
+  { text: "10 PM Coffee Orders at Mudcups", caption: "Always extra sugar, always complaining it's late." },
   { text: "The 'Are you asleep?' texts", caption: "Spoiler: Neither of us was." },
   { text: "College fest chaos", caption: "Loud music, lost umbrellas, zero regrets." },
   { text: "The inside jokes nobody else got", caption: "One word and we'd lose it." },

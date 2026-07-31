@@ -36,7 +36,7 @@ const MEMORIES = [
     title: "Gilly's",
     when: "terrible timing, great night",
     stock: STOCK.cafe2, src: "/photos/img2.jpg",
-    story: "A loud table, terrible noise levels, and the kind of uncontrollable laughter that makes your stomach hurt.",
+    story: "Just the two of us, a candle on a tiny cake, and the kind of uncontrollable laughter that makes your stomach hurt.",
     story2: "You always started laughing at your own joke halfway through telling it. You could never finish it with a straight face.",
     color: "var(--color-ember)",
   },
@@ -86,64 +86,6 @@ const TITLE_OUT = 4.0;
 const PER = 7.5;
 export const DURATION = TITLE_OUT + MEMORIES.length * PER + 3;
 
-// ── Canvas rain ──────────────────────────────────────────────────────────────
-function RainCanvas() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current!;
-    const ctx = canvas.getContext("2d")!;
-    let raf: number;
-
-    const resize = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    };
-    resize();
-    const ro = new ResizeObserver(resize);
-    ro.observe(canvas);
-
-    const drops = Array.from({ length: 120 }, () => ({
-      x: Math.random(),
-      y: Math.random(),
-      len: 8 + Math.random() * 14,
-      speed: 0.004 + Math.random() * 0.006,
-      alpha: 0.15 + Math.random() * 0.3,
-      width: 0.5 + Math.random() * 0.8,
-    }));
-
-    function draw() {
-      const W = canvas.width;
-      const H = canvas.height;
-      ctx.clearRect(0, 0, W, H);
-      drops.forEach((d) => {
-        d.y += d.speed;
-        if (d.y > 1) { d.y = -d.len / H; d.x = Math.random(); }
-        ctx.save();
-        ctx.globalAlpha = d.alpha;
-        ctx.strokeStyle = "#a5c8e4";
-        ctx.lineWidth = d.width;
-        ctx.beginPath();
-        ctx.moveTo(d.x * W, d.y * H);
-        ctx.lineTo(d.x * W - 1, d.y * H + d.len);
-        ctx.stroke();
-        ctx.restore();
-      });
-      raf = requestAnimationFrame(draw);
-    }
-
-    raf = requestAnimationFrame(draw);
-    return () => { cancelAnimationFrame(raf); ro.disconnect(); };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none z-[1]"
-    />
-  );
-}
-
 // ── Main component ────────────────────────────────────────────────────────────
 export default function Ch3() {
   const [i, setI] = useState(-1);
@@ -164,8 +106,6 @@ export default function Ch3() {
 
   return (
     <div className="relative h-full scroll-touch overflow-x-hidden flex flex-col items-center justify-start pt-20 pb-28 px-4 sm:px-6">
-      <RainCanvas />
-
       {m && <Backdrop key={`bd-${m.title}`} src={img(m.stock)} opacity={0.2} blur={10} />}
       <Tint color={m?.color ?? ACCENT} delay={0} strength={16} />
 
